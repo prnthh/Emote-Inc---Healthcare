@@ -8,11 +8,15 @@ app.set('view engine','ejs');
 app.use(express.static('static'));
 
 app.get('/', function(req, res){
-	res.send("Bro this is cool.");
+	res.render('index');
 });
 
-app.get('/shata', function(req, res){
-	res.render('home');
+app.get('/test', function(req, res){
+	res.render('test');
+});
+
+app.get('/chart', function(req, res){
+	res.render('chart');
 });
 
 app.listen(8080, function(){

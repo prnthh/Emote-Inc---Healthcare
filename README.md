@@ -1,8 +1,7 @@
 ![logo](assets/logo.png?raw=true "Aut.learn")
 # Aut.learn
 >A thousand students, a thousand teaching methods.
-
--Chinese Proverb
+>-Chinese Proverb
 
 Aut.learn is an intelligent system for learning.
 
@@ -23,7 +22,8 @@ Feedback is constantly monitored during lessons to make the test taking process 
 Customize lessons for students with varying disabilities based on preset learning weights. 
 
 
-###   
+### Real-time learning
+The system improves the syllabus and predicts what types of problems a student might face difficulties with based on outcomes of previous learning sessions.
 
 [1]:http://www.springer.com/gp/book/9781461411253
 
