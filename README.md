@@ -22,4 +22,4 @@ Customize lessons for students with varying disabilities based on preset learnin
 ###   
 
 [1]:http://www.springer.com/gp/book/9781461411253
-[logo]: https://github.com/whatisaroad/Emote-Inc---Healthcare/assets/logo.png "Aut.learn"
+[logo]: https://github.com/whatisaroad/Emote-Inc---Healthcare/blob/master/assets/logo.png
