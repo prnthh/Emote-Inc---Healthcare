@@ -1,3 +1,4 @@
+[logo]
 # Aut.learn
 >A thousand students, a thousand teaching methods.
 
@@ -21,3 +22,4 @@ Customize lessons for students with varying disabilities based on preset learnin
 ###   
 
 [1]:http://www.springer.com/gp/book/9781461411253
+[logo]: https://github.com/whatisaroad/Emote-Inc---Healthcare/assets/logo.png "Aut.learn"
