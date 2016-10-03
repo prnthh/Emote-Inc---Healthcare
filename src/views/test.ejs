@@ -1,7 +1,37 @@
 <% include partials/header %>
-        <div class="container" style="margin:solid 1px">
+        <div class="container">
           <div class="page-header">
-                  <h1>Buttons</h1>
-                </div>
+                  <h2>Lessons</h2>
+          </div>
+        <table class="table table-striped">
+                      <thead>
+                        <tr>
+                          <th>Lesson Name</th>
+                          <th>Completed</th>
+                          <th>Difficulty Level</th>
+                          <th>Take Test</th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                        <tr>
+                          <td>Math Session 31</td>
+                          <td><span class="glyphicon glyphicon-ok" aria-hidden="true"></span></td>
+                          <td>2</td>
+                          <td><button type="button" class="btn btn-primary">Take Test</button></td>
+                        </tr>
+                        <tr>
+                          <td>Math Session 32</td>
+                          <td><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
+                          <td>2</td>
+                          <td><a href="testing"><button type="button" class="btn btn-primary">Take Test</button></a></td>
+                        </tr>
+                        <tr>
+                          <td>Math Session 33</td>
+                          <td><span class="glyphicon glyphicon-remove" aria-hidden="true"></span></td>
+                          <td>2</td>
+                          <td><a href="testing"><button type="button" class="btn btn-primary">Take Test</button></a></td>
+                        </tr>
+                      </tbody>
+          </table>
         </div>
 <% include partials/footer %>

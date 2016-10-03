@@ -15,9 +15,18 @@ app.get('/test', function(req, res){
 	res.render('test');
 });
 
+app.get('/testing', function(req, res){
+	if(req.query.id)
+		res.send(id);
+	else
+		res.render('testing');
+});
+
 app.get('/chart', function(req, res){
 	res.render('chart');
 });
+
+
 
 app.listen(8080, function(){
 	console.log('Server running on port 8080.');
