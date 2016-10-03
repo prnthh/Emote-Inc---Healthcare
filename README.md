@@ -14,7 +14,9 @@ A summarized report is generated for each learning session to help monitor stude
 
 ### Biofeedback-based Aptitude Measurement
 **Galvanic skin response** or **skin conductance** is a measure of the amount of sweat being excreted by the body. Skin conductance increases with electro-dermal activity, which in turn indicates that the student is confused or having difficulty with the topic. [[1]] 
+
 ![gsr](assets/gsr.jpg?raw=true "Galvanic Skin Response")
+
 Feedback is constantly monitored during lessons to make the test taking process less stressful or even prevent anxiety-attacks.
 
 ### Disability-specific stats

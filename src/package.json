@@ -1,0 +1,16 @@
+{
+  "name": "Aut.learn",
+  "version": "0.0.1",
+  "description": "Intelligent learning system",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "author": "Prnth",
+  "license": "BSD-2-Clause",
+  "dependencies": {
+    "ejs": "~2.5.2",
+    "express": "~4.14.0"
+  }
+}
