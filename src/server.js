@@ -20,7 +20,11 @@ app.get('/', function(req, res){
 });
 
 app.get('/test', function(req, res){
-	res.render('test');
+	database.collection('collection').find({'completed':0}).toArray(function(err, docs){
+		res.render('test',{tests:docs});
+		//res.send(docs);
+	});
+	//res.render('test');
 });
 
 app.get('/testing', function(req, res){
