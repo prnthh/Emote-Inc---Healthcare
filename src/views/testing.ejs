@@ -7,11 +7,46 @@
                   background-color: #f5f5f5;
                 }
         </style>
-        <div class="container"><h2>Time for a story!</h2>
-          <div class="col-md-8"><h4></h4></div>
-          <div class="col-md-4"><h4>Timer: <label id="minutes">00</label>:<label id="seconds">00</label></div></h4>
+        <div class="container">
+          <div class="col-md-8"><h3 id="quizname"></h3></div>
+          <div class="col-md-4"><h3>Timer: <label id="minutes">00</label>:<label id="seconds">00</label></div></h3>
           <div class="col-md-8" id="question"></div>
           <div class="col-md-4" id="answers"></div>
+          <div class="col-md-12" id="answer">
+            <!-- Multiple Checkboxes -->
+            
+            <div class="form-group">
+              <label class="col-md-4 control-label" for="checkboxes">Multiple Checkboxes</label>
+              <div class="col-md-4">
+              <div class="checkbox">
+                <label for="checkboxes-0">
+                  <input type="checkbox" name="checkboxes" id="checkboxes-1" value="1">
+                  Option one
+                </label>
+              </div>
+              <div class="checkbox">
+                <label for="checkboxes-1">
+                  <input type="checkbox" name="checkboxes" id="checkboxes-2" value="2">
+                  Option two
+                </label>
+              </div>
+              <div class="checkbox">
+                <label for="checkboxes-1">
+                  <input type="checkbox" name="checkboxes" id="checkboxes-3" value="3">
+                  Option three
+                </label>
+              </div>
+              <div class="checkbox">
+                <label for="checkboxes-1">
+                  <input type="checkbox" name="checkboxes" id="checkboxes-4" value="4">
+                  Option four
+                </label>
+              </div>
+              </div>
+            </div>
+          
+
+          </div>
           <button type="button" class="btn btn-info" id="next" onclick="nextQ()" value="Next">Next</button>
               
           </div>
@@ -27,6 +62,7 @@
                 var target = this;
                 return target.split(search).join(replacement);
             };
+            var aTime = [{}];
             var qNow = 0;
             var tests = '<%= tests %>';
             var tests = tests.replaceAll("&#34;", '"');
@@ -36,11 +72,21 @@
             var totalSeconds = 0;
             setInterval(setTime, 1000);
 
+
             function nextQ()
-            {   if(qNow >= questions.questions.length)
-                  window.location = "/test";
-                document.getElementById("question").innerHTML = questions.questions[qNow].question;
+            {   if(qNow >= questions.questions.length){
+                
+                window.location = "/test";
+            }
+                  
+
+                document.getElementById("question").innerHTML = '<img src="'+questions.questions[qNow].question+'">';
                 document.getElementById("answers").innerHTML = questions.questions[qNow].answers;
+                document.getElementById("quizname").innerHTML = questions.name;
+                var d = new Date();
+                var n = d.getTime();
+                aTime[qNow] = {time:n};
+                console.log(aTime);
                 qNow = qNow + 1;
             }
 
