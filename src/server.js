@@ -38,7 +38,11 @@ app.get('/chart', function(req, res){
 	res.render('chart');
 });
 
-
+app.get('/getGSR', function(req, res){
+	database.collection('gsr').find().sort({time:-1}).limit(1).toArray(function(err, docs){
+		res.send(docs)
+	});
+});
 
 app.listen(8080, function(){
 	console.log('Server running on port 8080.');

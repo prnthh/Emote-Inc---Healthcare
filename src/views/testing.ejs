@@ -6,10 +6,7 @@
           <div  class="col-md-4" id="chartContainer" style="height: 300px;">
           </div>
           <div class="col-md-4" id="question"></div>
-          <div class="col-md-4" id="answers" style="margin-bottom:30px;"></div>
-            <!-- Multiple Checkboxes -->
-            
-            <div class="form-group" style="margin-top:30px;">
+          <div class="col-md-4" style="margin-bottom:30px;"><div class="col-md-12" id="answers"></div><div id="optionPickers"><div class="form-group" style="margin-top:30px;">
               <div class="checkbox">
                 <label for="checkboxes-0">
                   <input type="checkbox" name="checkboxes" id="checkboxes-1" value="1">
@@ -34,7 +31,10 @@
                   Option four
                 </label>
               </div>
-            </div>
+            </div></div></div>
+            <!-- Multiple Checkboxes -->
+          
+          
           
 
           </div>
@@ -55,14 +55,22 @@
 
             var xVal = 0;
             var yVal = 100; 
-            var updateInterval = 200;
-            var dataLength = 500; // number of dataPoints visible at any point
+            var updateInterval = 1000;
+            var dataLength = 100; // number of dataPoints visible at any point
+
+            function httpGet(url)
+            {
+                var xmlHttp = new XMLHttpRequest();
+                xmlHttp.open( "GET", url, false ); // false for synchronous request
+                xmlHttp.send( null );
+                return xmlHttp.responseText;
+            }
 
             var updateChart = function (count) {
               count = count || 1;
               // count is number of times loop runs to generate random dataPoints.
-              
-              for (var j = 0; j < count; j++) { 
+              console.log(httpGet('/getGSR'));
+              for (var j = 0; j < count; j++) {
                 yVal = yVal +  Math.round(5 + Math.random() *(-5-5));
                 dps.push({
                   x: xVal,
