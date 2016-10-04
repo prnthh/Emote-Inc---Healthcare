@@ -12,8 +12,7 @@
           <div class="col-md-4"><h4>Timer: <label id="minutes">00</label>:<label id="seconds">00</label></div></h4>
           <div class="col-md-8" id="question"></div>
           <div class="col-md-4" id="answers"></div>
-          <button type="button" class="btn btn-info" id="next" value="Next">Next</button>
-          
+          <button type="button" class="btn btn-info" id="next" onclick="nextQ()" value="Next">Next</button>
               
           </div>
         </div>
@@ -24,11 +23,26 @@
         </div>
 
         <script type="text/javascript">
-            var tests = <%= tests %>
+            String.prototype.replaceAll = function(search, replacement) {
+                var target = this;
+                return target.split(search).join(replacement);
+            };
+            var qNow = 0;
+            var tests = '<%= tests %>';
+            var tests = tests.replaceAll("&#34;", '"');
+            var questions = JSON.parse(tests);
             var minutesLabel = document.getElementById("minutes");
             var secondsLabel = document.getElementById("seconds");
             var totalSeconds = 0;
             setInterval(setTime, 1000);
+
+            function nextQ()
+            {   if(qNow >= questions.questions.length)
+                  window.location = "/test";
+                document.getElementById("question").innerHTML = questions.questions[qNow].question;
+                document.getElementById("answers").innerHTML = questions.questions[qNow].answers;
+                qNow = qNow + 1;
+            }
 
             function setTime()
             {
