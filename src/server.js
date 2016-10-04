@@ -28,14 +28,10 @@ app.get('/test', function(req, res){
 });
 
 app.get('/testing', function(req, res){
-	if(req.query.id){
-		database.collection('collection').find({'completed':0}).toArray(function(err, docs){
-			console.log(docs);
-			res.send(docs);
-		});
-	}
-	else
-		res.render('testing');
+	database.collection('collection').find({'completed':0}).toArray(function(err, docs){
+		if(req.query.id)
+			res.render('testing', {tests:JSON.stringify(docs[req.query.id])});
+	});
 });
 
 app.get('/chart', function(req, res){
