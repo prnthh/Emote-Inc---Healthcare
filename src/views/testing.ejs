@@ -1,23 +1,15 @@
 <% include partials/header %>
-        <style>
-          #footer {
-                  height: 60px;
-                }
-                #footer {
-                  background-color: #f5f5f5;
-                }
-        </style>
+
         <div class="container">
           <div class="col-md-8"><h3 id="quizname"></h3></div>
           <div class="col-md-4"><h3>Timer: <label id="minutes">00</label>:<label id="seconds">00</label></div></h3>
-          <div class="col-md-8" id="question"></div>
-          <div class="col-md-4" id="answers"></div>
-          <div class="col-md-12" id="answer">
+          <div  class="col-md-4" id="chartContainer" style="height: 300px;">
+          </div>
+          <div class="col-md-4" id="question"></div>
+          <div class="col-md-4" id="answers" style="margin-bottom:30px;"></div>
             <!-- Multiple Checkboxes -->
             
-            <div class="form-group">
-              <label class="col-md-4 control-label" for="checkboxes">Multiple Checkboxes</label>
-              <div class="col-md-4">
+            <div class="form-group" style="margin-top:30px;">
               <div class="checkbox">
                 <label for="checkboxes-0">
                   <input type="checkbox" name="checkboxes" id="checkboxes-1" value="1">
@@ -42,20 +34,67 @@
                   Option four
                 </label>
               </div>
-              </div>
             </div>
           
 
           </div>
-          <button type="button" class="btn btn-info" id="next" onclick="nextQ()" value="Next">Next</button>
+          <script type="text/javascript">
+          window.onload = function () {
+
+            var dps = []; // dataPoints
+
+            var chart = new CanvasJS.Chart("chartContainer",{
+              title :{
+                text: "Galvanic Skin Response"
+              },      
+              data: [{
+                type: "line",
+                dataPoints: dps 
+              }]
+            });
+
+            var xVal = 0;
+            var yVal = 100; 
+            var updateInterval = 200;
+            var dataLength = 500; // number of dataPoints visible at any point
+
+            var updateChart = function (count) {
+              count = count || 1;
+              // count is number of times loop runs to generate random dataPoints.
               
+              for (var j = 0; j < count; j++) { 
+                yVal = yVal +  Math.round(5 + Math.random() *(-5-5));
+                dps.push({
+                  x: xVal,
+                  y: yVal
+                });
+                xVal++;
+              };
+              if (dps.length > dataLength)
+              {
+                dps.shift();        
+              }
+              
+              chart.render();   
+
+            };
+
+            // generates first set of dataPoints
+            updateChart(dataLength); 
+
+            // update chart after specified time. 
+            setInterval(function(){updateChart()}, updateInterval); 
+
+          }
+          </script>
+          <script type="text/javascript" src="/js/canvasjs.min.js"></script>
+          
+          <div class="col-md-12 text-center">
+          <button type="button" class="btn btn-info" id="next" onclick="nextQ()" value="Next">Next</button>
+          </div>
           </div>
         </div>
-        <div id="footer">
-              <div class="container">
-               
-              </div>
-        </div>
+       
 
         <script type="text/javascript">
             String.prototype.replaceAll = function(search, replacement) {
@@ -75,12 +114,11 @@
 
             function nextQ()
             {   if(qNow >= questions.questions.length){
-                
                 window.location = "/test";
             }
                   
 
-                document.getElementById("question").innerHTML = '<img src="'+questions.questions[qNow].question+'">';
+                document.getElementById("question").innerHTML = '<img style="width:90%; padding:10px;" src="/img/'+questions.questions[qNow].question+'">';
                 document.getElementById("answers").innerHTML = questions.questions[qNow].answers;
                 document.getElementById("quizname").innerHTML = questions.name;
                 var d = new Date();
