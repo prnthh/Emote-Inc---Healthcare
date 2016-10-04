@@ -5,6 +5,8 @@
 
 Aut.learn is an intelligent system for learning.
 
+![gsr](assets/screenshot.png?raw=true "Screenshot")
+
 ### Smart Learning Plan
 >Create a structured environment with predictable routines. The daily routine should be the same from day to day, with small changes.
 
